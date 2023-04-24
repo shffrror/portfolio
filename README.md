@@ -1,2 +1,4 @@
 # portfolio
-This repository contains portfolio projects to demonstration specific skill areas.
+This repository contains portfolio projects to demonstrate proficiency in different skill areas.
+
+## table of contents
