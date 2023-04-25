@@ -1,35 +1,47 @@
 import pygame
-pygame.init()
+import logging
 
-screen = pygame.display.set_mode([800, 800])
 
-running = True
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+class MultiplierCheckers:
+    def __init__(self):
+        pygame.init()
+        pygame.display.set_caption("Wendell's Multiplier Checkers")
+        self.screen = pygame.display.set_mode([800, 800])
+        self.running = True
 
-    screen.fill((255, 255, 255))
+    def game_runner(self):
+        logging.basicConfig(filename='game_info_output.log', level=logging.INFO)
+        logging.info("Running game")
+        while self.running:
+            self.draw_board()
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    return False
+        pygame.quit()
 
-    pygame.draw.circle(screen, (0, 0, 0), (250, 250), 75)
+    def draw_board(self):
+        logging.info("Drawing board")
+        # TODO NRL Stop from drawing board constantly
+        starting_x = 0
+        color_switch_bool = 0
+        while starting_x <= 800:
+            starting_y = 0
+            while starting_y <= 800:
+                if color_switch_bool == 0:
+                    pygame.draw.rect(self.screen, (138, 43, 226), (starting_x, starting_y, 100, 100))
+                else:
+                    pygame.draw.rect(self.screen, (0, 191, 255), (starting_x, starting_y, 100, 100))
+                starting_y += 100
+                color_switch_bool = not color_switch_bool
+            starting_x += 100
 
-    starting_x = 0
-    starting_y = 0
-    red_black_bool_track = 0
-    while starting_x <= 800:
-        starting_y = 0
-        while starting_y <= 800:
-            if red_black_bool_track == 0:
-                pygame.draw.rect(screen, (255, 0, 0), (starting_x, starting_y, 100, 100))
-            else:
-                pygame.draw.rect(screen, (0, 0, 255), (starting_x, starting_y, 100, 100))
-            starting_y += 100
-            red_black_bool_track = not red_black_bool_track
+        pygame.display.flip()
 
-        starting_x += 100
 
-    # pygame.draw.rect(window, color, (x, y, width, height)
+def main():
+    game = MultiplierCheckers()
+    game.game_runner()
 
-    pygame.display.flip()
 
-pygame.quit()
+if __name__ == "__main__":
+    main()
