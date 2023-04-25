@@ -1,0 +1,1 @@
+Checkers with enhancements _each_ time a piece reaches the opposite side of the board.
