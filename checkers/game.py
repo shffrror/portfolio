@@ -35,6 +35,8 @@ class MultiplierCheckers:
     def determine_click_square(self, coordinates):
         x_coordinate = coordinates[0]
         y_coordinate = coordinates[1]
+        # Each square is 100 size
+        # We should be able to calculate what square is with some modulo calculations?
         print(x_coordinate)
         print(y_coordinate)
 
