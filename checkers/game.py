@@ -36,7 +36,7 @@ class MultiplierCheckers:
         x_coordinate = coordinates[0]
         y_coordinate = coordinates[1]
         # Each square is 100 size
-        # We should be able to calculate what square is with some modulo calculations?
+        # Calculate if mod > 0 where x >= lower_limit of square range and x <= upper_limit
         print(x_coordinate)
         print(y_coordinate)
 
