@@ -4,7 +4,7 @@ import logging
 
 class MultiplierCheckers:
     def __init__(self):
-        logging.basicConfig(filename='game_info_output.log', level=logging.INFO)
+        #logging.basicConfig(filename='game_info_output.log', level=logging.INFO)
         pygame.init()
         pygame.display.set_caption("Wendell's Multiplier Checkers")
         self.screen = pygame.display.set_mode([800, 800])
